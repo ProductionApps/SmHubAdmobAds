@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#e3e3e3"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/demo_icon" />
+
+    <TextView
+        android:id="@+id/app_title"
+        android:layout_toLeftOf="@+id/ad_advertiser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/app_icon"
+        android:layout_margin="8dp"
+        android:layout_toRightOf="@+id/app_icon"
+        android:fontFamily="@font/roboto"
+        android:maxLines="2"
+        android:text="Piczy"
+        android:textColor="@color/smAdBorderColor"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:textSize="13sp"
+        android:id="@+id/ad_advertiser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/toolbarColor"
+        android:drawableLeft="@drawable/advertiser_ad_icon"
+        android:drawablePadding="3dp"
+        android:padding="3dp"
+        android:text="Smarthub"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:adjustViewBounds="true"
+        android:id="@+id/media_view"
+        android:minHeight="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_icon"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/ad_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/media_view"
+        android:layout_centerHorizontal="true"
+        android:maxLines="2"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:text="Description"
+        android:textSize="13sp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/call_to_action_card"
+        android:layout_below="@id/ad_description"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:cardCornerRadius="8dp">
+        <TextView
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Install Now"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/titleColor"/>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

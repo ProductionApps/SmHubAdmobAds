@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+            credentials {
+                username 'jp_7jv3vevt1mv3s6s1c1mo83sfdc'}
+        }
+    }
+}
+rootProject.name = "SmHub Ads Project"
+include ':app'
+include ':smhubads'
