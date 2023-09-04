@@ -96,12 +96,12 @@ public class AdUnits {
         this.fbNative = "YOUR_PLACEMENT_ID";
         this.fbBanner = "YOUR_PLACEMENT_ID";
 
-        this.admInterstitial = "ca-app-pub-4788594300296201/1615301826";
-        this.admNative = "ca-app-pub-4788594300296201/1556673647";
-        this.admBanner = "ca-app-pub-4788594300296201/1144528534";
-        this.admRewarded = "ca-app-pub-4788594300296201/9727378529";
-        this.admRewardedInterstitial = "ca-app-pub-4788594300296201/7101215182";
-        this.admAppOpen = "ca-app-pub-4788594300296201/7848154798";
+        this.admInterstitial = "ca-app-pub-3940256099942544/1033173712";
+        this.admNative = "ca-app-pub-3940256099942544/2247696110";
+        this.admBanner = "ca-app-pub-3940256099942544/6300978111";
+        this.admRewarded = "ca-app-pub-3940256099942544/5224354917";
+        this.admRewardedInterstitial = "ca-app-pub-3940256099942544/5354046379";
+        this.admAppOpen = "ca-app-pub-3940256099942544/3419835294";
 
         unityInterstitial = "Interstitial_Android";
         unityBanner = "Banner_Android";

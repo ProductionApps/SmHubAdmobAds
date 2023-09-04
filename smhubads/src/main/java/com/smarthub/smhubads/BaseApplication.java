@@ -50,8 +50,7 @@ public  class BaseApplication extends MultiDexApplication implements IUnityAdsIn
     public InterstitialListener interstitialListener;
     public SharedPreferences mPrefs;
     public String currentFragmentName = "fragment";
-    public String unityGameID = "4766737";
-    public Boolean unityTestMode = false;
+
     public Boolean isUnityInitialized = false;
     public static BaseApplication getInstance(){
         if (instance==null)
@@ -75,10 +74,8 @@ public  class BaseApplication extends MultiDexApplication implements IUnityAdsIn
         AppLogger.d("onInitializationFailed" + message + "," + error.name());
     }
 
-    public void initializedUnitySdk() {
+    public void initializedUnitySdk(String unityGameID,Boolean unityTestMode) {
         // Initialize the unity SDK:
-        if (!BuildConfig.DEBUG && unityTestMode)
-            unityTestMode = false;
         UnityAds.initialize(getApplicationContext(), unityGameID, unityTestMode, this);
     }
 

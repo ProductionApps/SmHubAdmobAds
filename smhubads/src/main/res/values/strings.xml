@@ -6,13 +6,6 @@
     <string name="disclosure_message">Your data will be used to deliver personalized ads to you.</string>
     <string name="crop_image">CROP IMAGE</string>
 
-    <string name="max_banner">0001f2a73c7b4a19</string>
-    <string name="max_interstitial">a2a6cbf91721c52f</string>
-    <string name="max_native_small">311a3a19c5475b7a</string>
-    <string name="max_native_medium">df8247cad6cfc9c5</string>
-    <string name="max_app_open">462ff234a3003c4c</string>
-    <string name="max_reward">0d89f2e62a289516</string>
-
     <string name="link_to_channel">https://play.google.com/store/apps/developer?id=Smart+hub</string>
 
 
