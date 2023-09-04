@@ -460,7 +460,7 @@ public class AdmobAdController{
      * {@link NativeAd}.
      */
     public void loadInterstitial(String id) {
-        if (isLoading || mInterstitialAd!=null){
+        if (isLoading || mInterstitialAd!=null || customActivity==null){
             return;
         }
         if (adRequest==null)
