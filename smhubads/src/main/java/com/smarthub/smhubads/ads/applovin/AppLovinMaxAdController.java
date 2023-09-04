@@ -58,7 +58,7 @@ public class AppLovinMaxAdController {
 
     public void createBannerAd(ViewGroup rootView,CustomActivity customActivity,String id){
         if (id==null || id.isEmpty())
-            id = BaseApplication.getInstance().getString(R.string.max_banner);
+            return;
 
         AppLogger.d("max banner loading --:" + id);
 
@@ -141,7 +141,7 @@ public class AppLovinMaxAdController {
 
     public void loadInterstitialAd(Activity activity,String id) {
         if (id==null || id.isEmpty())
-            id = BaseApplication.getInstance().getString(R.string.max_interstitial);
+            return;
         AppLogger.d("loadInterstitialAd :" + id);
         if (interstitialAd!=null && interstitialAd.isReady())
             return;
