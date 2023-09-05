@@ -151,7 +151,7 @@
          super.onResume();
          isVisible = true;
          if (BaseApplication.getInstance().interstitialListener!=null){
-             BaseApplication.getInstance().interstitialListener.onAdDismissed();
+             BaseApplication.getInstance().interstitialListener.onAdDismissed(true);
              BaseApplication.getInstance().interstitialListener = null;
 //             AppLogger.d("onResume interstitialListener");
              return;

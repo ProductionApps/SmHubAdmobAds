@@ -409,7 +409,7 @@ public class AdmobAdController{
                 @Override
                 public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
                     super.onAdFailedToShowFullScreenContent(adError);
-                    interstitialListener.onAdDismissed();
+                    interstitialListener.onAdDismissed(false);
                     mInterstitialAd=null;
                 }
 
@@ -432,7 +432,7 @@ public class AdmobAdController{
                     super.onAdDismissedFullScreenContent();
                     BaseApplication.getInstance().isAppOpen = true;
                     if (BaseApplication.getInstance().interstitialListener!=null) {
-                        interstitialListener.onAdDismissed();
+                        interstitialListener.onAdDismissed(true);
                         BaseApplication.getInstance().interstitialListener = null;
                     }
                     mInterstitialAd=null;

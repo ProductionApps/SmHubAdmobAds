@@ -255,8 +255,8 @@ public class AdsController {
                 UnityMediationController.getInstance().showInterstitial(adUnits.unityInterstitial,customActivity,adListenerCallback);
             }else if(adPrior.getMaxInterstitialAds() && BaseApplication.getInstance().appLovingInit){
                 AppLovinMaxAdController.getInstance().showInterstitialAd(customActivity,adListenerCallback, adUnits.maxInterstitial);
-            }else adListenerCallback.onAdDismissed();
-        }else adListenerCallback.onAdDismissed();
+            }else adListenerCallback.onAdDismissed(false);
+        }else adListenerCallback.onAdDismissed(false);
 
     }
 

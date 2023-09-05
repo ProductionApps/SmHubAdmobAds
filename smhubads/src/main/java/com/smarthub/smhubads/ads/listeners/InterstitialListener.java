@@ -2,5 +2,5 @@ package com.smarthub.smhubads.ads.listeners;
 
 public interface InterstitialListener {
 
-    void onAdDismissed();
+    void onAdDismissed(boolean isShowed);
 }
