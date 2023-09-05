@@ -50,7 +50,7 @@ public class UnityMediationController implements IUnityAdsLoadListener,IUnityAds
         if (INTERSTITIAL_ID.equals(placementId)) {
             isInterstitialReady = false;
             if (interstitialListener != null && customActivity != null && customActivity.isVisible)
-                interstitialListener.onAdDismissed();
+                interstitialListener.onAdDismissed(false);
         }else if (placementId.equals(REWARD_AD_ID) && rewardListener!=null) {
             rewardListener.onRewardFailed();
 //            isRewardedAdLoading = false;
@@ -78,7 +78,7 @@ public class UnityMediationController implements IUnityAdsLoadListener,IUnityAds
             AdsController.getInstance().updateInterstitialTime();
             AppLogger.d( "onUnityAdsShowComplete: " + placementId);
             if (interstitialListener != null && customActivity != null && customActivity.isVisible)
-                interstitialListener.onAdDismissed();
+                interstitialListener.onAdDismissed(true);
         }else if (placementId.equals(REWARD_AD_ID) && rewardListener!=null) {
             isRewardReady = false;
             AppLogger.d("onUnityAdsShowComplete: " + placementId);
@@ -130,7 +130,7 @@ public class UnityMediationController implements IUnityAdsLoadListener,IUnityAds
             UnityAds.show(customActivity,id,this);
         }else{
             loadInterstitial(INTERSTITIAL_ID);
-            interstitialListener.onAdDismissed();
+            interstitialListener.onAdDismissed(false);
         }
     }
 

@@ -168,7 +168,7 @@ public class AppLovinMaxAdController {
                     AppLogger.d("interstitial dismissed");
                     BaseApplication.getInstance().isAppOpen = true;
                     if (interstitialCallback!=null)
-                        interstitialCallback.onAdDismissed();
+                        interstitialCallback.onAdDismissed(true);
                     interstitialAd.loadAd();
                 }
 
@@ -189,14 +189,13 @@ public class AppLovinMaxAdController {
                     new Handler().postDelayed(() -> {
                                 if (interstitialAd==null || !interstitialAd.isReady())
                                     interstitialAd.loadAd();
-                            }
-                            , delayMillis );
+                                }, delayMillis );
                 }
 
                 @Override
                 public void onAdDisplayFailed(MaxAd ad, MaxError error) {
                     if (interstitialCallback!=null)
-                        interstitialCallback.onAdDismissed();
+                        interstitialCallback.onAdDismissed(false);
                     interstitialAd.loadAd();
                     AppLogger.d("max onAdDisplayFailed:"+error.getMessage());
                 }
@@ -214,7 +213,7 @@ public class AppLovinMaxAdController {
         }else{
             AppLogger.d("max showInterstitial not available");
             loadInterstitialAd(customActivity,id);
-            interstitialCallback.onAdDismissed();
+            interstitialCallback.onAdDismissed(false);
         }
     }
 
