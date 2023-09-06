@@ -18,6 +18,6 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "SmHub Ads Project"
+rootProject.name = "SmHub Admob Project"
 include ':app'
-include ':smhubads'
+include ':smhubadmob'
