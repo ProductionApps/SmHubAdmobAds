@@ -44,7 +44,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     api 'androidx.multidex:multidex:2.0.1'
-    api 'com.google.code.gson:gson:2.10.1'
+    api 'com.google.code.gson:gson:2.9.0'
     api 'com.google.android.gms:play-services-ads-identifier:18.0.1'
     api 'com.google.android.gms:play-services-ads:22.3.0'
     implementation 'com.google.errorprone:error_prone_annotations:2.16'
@@ -58,6 +58,7 @@ dependencies {
     api 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     api 'com.ui.optimize:dimens:1.0.0'
+    api 'com.google.android.exoplayer:exoplayer:2.19.1'
 }
 
 afterEvaluate {

@@ -242,6 +242,28 @@ public class AdmobAdController{
         Log.d("status","banner ad loading...");
     }
 
+    public void showNativeAd(CustomActivity context,String id){
+        if (nativeAd!=null && customActivity!=null && customActivity.mainNativeViewHolder!=null){
+            try {
+                TemplateView template = customActivity.mainNativeViewHolder.findViewById(R.id.my_template);
+                if (template==null)
+                    return;
+                if (template.getVisibility() != View.VISIBLE)
+                    template.setVisibility(View.VISIBLE);
+                NativeTemplateStyle styles = new NativeTemplateStyle.Builder().build();
+
+                template.setStyles(styles);
+                template.setNativeAd(nativeAd);
+                nativeAd = null;
+                BaseApplication.getInstance().putAdsEvent("admob native ad ");
+                loadNativeAdCache(context,id);
+            }catch (Exception e){
+                AppLogger.d("native ad error:"+e.getLocalizedMessage());
+            }
+
+        }
+    }
+
     public void getNativeAd(CustomActivity context,String id){
         this.customActivity = context;
         if (nativeAd!=null && customActivity!=null && customActivity.mainNativeViewHolder!=null){
@@ -266,17 +288,7 @@ public class AdmobAdController{
         else {
             AppLogger.d("native onFallback");
             if (nativeAd == null)
-                loadNativeAdCache(context,id);
-        }
-    }
-    public void getNativeAdCache(CustomActivity context,String id,AdsController.NativeAdLoaded nativeLoad){
-        this.customActivity = context;
-        if (nativeAd!=null){
-            AppLogger.d("getNativeAdCache nativeAd not null");
-            nativeLoad.nativeAdLoaded();
-        }
-        else {
-            loadNativeAdCache(context,id,nativeLoad);
+                loadNativeCache(context,id);
         }
     }
 
@@ -316,7 +328,7 @@ public class AdmobAdController{
         }).build();
         adLoader.loadAd(adRequest);
     }
-    public void loadNativeAdCache(Context context,String id,AdsController.NativeAdLoaded nativeLoad)  {
+    public void loadNativeCache(CustomActivity context,String id)  {
         adLoader = new AdLoader.Builder(context, id).forNativeAd(ad -> {
             nativeAd = ad;
             nativeAd1.add(ad);
@@ -335,14 +347,13 @@ public class AdmobAdController{
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
-                AppLogger.d("loadNativeAdCache onAdLoaded");
-                if (nativeLoad!=null)
-                    nativeLoad.nativeAdLoaded();
+                showNativeAd(context,id);
             }
 
             @Override
             public void onAdClicked() {
                 super.onAdClicked();
+                AdsController.getInstance().updateBannerNativeAdsServing();
             }
         }).build();
         adLoader.loadAd(adRequest);

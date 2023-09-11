@@ -87,21 +87,6 @@ public class AdsController {
         currentInterstitialAdImpressionCount++;
     }
 
-    public void updateInterstitialAdUnit(){
-//        try{
-//            if (adUnits.admInterstitialList==null || adUnits.admInterstitialList.isEmpty())
-//                return;
-//            currentInterstitialCount++;
-//            if (currentInterstitialCount>adUnits.admInterstitialList.size()-1)
-//                currentInterstitialCount = 0;
-//            if (adUnits.admInterstitialList.size()>=2){
-//                adUnits.admInterstitial = adUnits.admInterstitialList.get(currentInterstitialCount);
-//            }
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-    }
-
     public void updateBannerAdUnit(){
 //        try{
 //            if (adUnits.admBannerList==null || adUnits.admBannerList.isEmpty())
@@ -185,17 +170,12 @@ public class AdsController {
     }
 
     public void showBannerAd(CustomActivity customActivity, ViewGroup container,String name){
-        boolean isEnable = BaseApplication.getInstance().getBannerAdEnability(BaseApplication.getInstance().currentFragmentName);
         if (container.getTag()!=null && (container.getTag() instanceof String) && (container.getTag().toString().equals("medium") || container.getTag().toString().equals("large"))) {
             AdmobAdController.getInstance().showBanner(customActivity,container,AdSize.LARGE_BANNER,adUnits.admBanner);
         }
         else {
             AdmobAdController.getInstance().showBanner(customActivity, container, AdSize.BANNER, adUnits.admBanner);
         }
-    }
-
-    public interface NativeAdLoaded{
-        void nativeAdLoaded();
     }
 
 }
