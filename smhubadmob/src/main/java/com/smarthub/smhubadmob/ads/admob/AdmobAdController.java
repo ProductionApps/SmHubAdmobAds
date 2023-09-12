@@ -453,6 +453,7 @@ public class AdmobAdController{
             });
             return;
         }
+        interstitialListener.onAdDismissed(false);
         if (!isLoading){
             loadInterstitial(id);
         }
