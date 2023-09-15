@@ -32,14 +32,13 @@ public class AdsController {
         else return 3;
     }
 
-    public void updateAdsServing(){
-        int dayClickedCount = BaseApplication.getInstance().getPreferenceInt(getDay()) + 1;
-        BaseApplication.getInstance().setPreferenceValue(getDay(),dayClickedCount);
-        if (dayClickedCount>=getMaxClicked()) {
-            adServing = false;
-            BaseApplication.getInstance().putAdsEvent("ad serving limited at:"+dayClickedCount);
-        }
-    }
+//    public void updateAdsServing(){
+//        int dayClickedCount = BaseApplication.getInstance().getPreferenceInt(getDay()) + 1;
+//        BaseApplication.getInstance().setPreferenceValue(getDay(),dayClickedCount);
+//        if (dayClickedCount>=getMaxClicked()) {
+//            BaseApplication.getInstance().putAdsEvent("ad serving limited at:"+dayClickedCount);
+//        }
+//    }
 
     public void updateBannerNativeAdsServing(){
 //        int dayNativeBannerClickedCount = BaseApplication.getInstance().getPreferenceInt(getDay()+"_nativeBanner") + 1;
@@ -134,6 +133,8 @@ public class AdsController {
 
 
     public void showRewarded(CustomActivity activity, RewardListener l){
+        if (!adServing)
+            l.onRewardFailed();
         AdmobAdController.getInstance().showRewarded(activity, new RewardListener() {
             @Override
             public void onRewardEarned(RewardItem rewardItem) {
@@ -157,19 +158,27 @@ public class AdsController {
     }
 
     public void showInterstitial(CustomActivity customActivity, InterstitialListener adListenerCallback){
+        if (!adServing)
+            adListenerCallback.onAdDismissed(false);
         AdmobAdController.getInstance().showInterstitial(adListenerCallback, customActivity, adUnits.admInterstitial);
     }
 
     public void showNativeAd(ViewGroup container,CustomActivity customActivity){
+        if (!adServing)
+            return;
         AdmobAdController.getInstance().getNativeAd(customActivity, adUnits.admNative);
     }
 
 
     public void showNativeBannerAd(ViewGroup container, CustomActivity customActivity){
+        if (!adServing)
+            return;
         AdmobAdController.getInstance().showNativeAdCurrent(customActivity, adUnits.admNative, container);
     }
 
     public void showBannerAd(CustomActivity customActivity, ViewGroup container,String name){
+        if (!adServing)
+            return;
         if (container.getTag()!=null && (container.getTag() instanceof String) && (container.getTag().toString().equals("medium") || container.getTag().toString().equals("large"))) {
             AdmobAdController.getInstance().showBanner(customActivity,container,AdSize.LARGE_BANNER,adUnits.admBanner);
         }

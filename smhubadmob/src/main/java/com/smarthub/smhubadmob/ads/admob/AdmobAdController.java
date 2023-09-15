@@ -448,7 +448,7 @@ public class AdmobAdController{
                 public void onAdClicked() {
                     super.onAdClicked();
                     BaseApplication.getInstance().putAdsEvent("admob interstitial clicked ");
-                    AdsController.getInstance().updateAdsServing();
+
                 }
             });
             return;
