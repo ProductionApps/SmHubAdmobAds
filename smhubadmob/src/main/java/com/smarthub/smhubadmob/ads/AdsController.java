@@ -135,7 +135,8 @@ public class AdsController {
     public void showRewarded(CustomActivity activity, RewardListener l){
         if (!adServing)
             l.onRewardFailed();
-        AdmobAdController.getInstance().showRewarded(activity, new RewardListener() {
+        else
+            AdmobAdController.getInstance().showRewarded(activity, new RewardListener() {
             @Override
             public void onRewardEarned(RewardItem rewardItem) {
                 l.onRewardEarned(rewardItem);
@@ -160,7 +161,7 @@ public class AdsController {
     public void showInterstitial(CustomActivity customActivity, InterstitialListener adListenerCallback){
         if (!adServing)
             adListenerCallback.onAdDismissed(false);
-        AdmobAdController.getInstance().showInterstitial(adListenerCallback, customActivity, adUnits.admInterstitial);
+        else AdmobAdController.getInstance().showInterstitial(adListenerCallback, customActivity, adUnits.admInterstitial);
     }
 
     public void showNativeAd(ViewGroup container,CustomActivity customActivity){
