@@ -521,9 +521,9 @@ public class AdmobAdController{
                 AppLogger.d("rewardedAd granted");
             });
         }else {
-            loadRewarded(activity);
             AppLogger.d("rewardedAd null");
             showRewardedInterstitial(activity,l);
+            loadRewarded(activity);
         }
     }
 
