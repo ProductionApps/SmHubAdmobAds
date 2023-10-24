@@ -24,6 +24,7 @@ public class AdsController {
 
     public boolean adServing;
     public long interstitialAdLoadTime;
+    public long interstitialMinLoadTime = 60;
     public int currentInterstitialAdImpressionCount = 0;
 
     public int getMaxClicked(){
