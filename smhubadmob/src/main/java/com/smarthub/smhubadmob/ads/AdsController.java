@@ -160,10 +160,10 @@ public class AdsController {
     }
 
     public void showInterstitial(CustomActivity customActivity, InterstitialListener adListenerCallback){
-        long time = ((System.currentTimeMillis() - interstitialAdLoadTime) /1000);
-        if (!adServing && time >= interstitialMinLoadTime)
-            adListenerCallback.onAdDismissed(false);
-        else AdmobAdController.getInstance().showInterstitial(adListenerCallback, customActivity, adUnits.admInterstitial);
+        long time = ((System.currentTimeMillis() - interstitialAdLoadTime) / 1000);
+        if (adServing && time >= interstitialMinLoadTime)
+            AdmobAdController.getInstance().showInterstitial(adListenerCallback, customActivity, adUnits.admInterstitial);
+        else adListenerCallback.onAdDismissed(false);
     }
 
     public void showNativeAd(ViewGroup container,CustomActivity customActivity){
