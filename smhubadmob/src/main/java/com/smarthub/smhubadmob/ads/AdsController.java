@@ -160,7 +160,8 @@ public class AdsController {
     }
 
     public void showInterstitial(CustomActivity customActivity, InterstitialListener adListenerCallback){
-        if (!adServing)
+        long time = ((System.currentTimeMillis() - interstitialAdLoadTime) /1000);
+        if (!adServing && time >= interstitialMinLoadTime)
             adListenerCallback.onAdDismissed(false);
         else AdmobAdController.getInstance().showInterstitial(adListenerCallback, customActivity, adUnits.admInterstitial);
     }
