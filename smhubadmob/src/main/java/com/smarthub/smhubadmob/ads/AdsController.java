@@ -1,5 +1,6 @@
 package com.smarthub.smhubadmob.ads;
 
+import android.app.Activity;
 import android.view.ViewGroup;
 
 import com.google.android.gms.ads.AdSize;
@@ -159,7 +160,7 @@ public class AdsController {
         AdmobAdController.getInstance().clearAds();
     }
 
-    public void showInterstitial(CustomActivity customActivity, InterstitialListener adListenerCallback){
+    public void showInterstitial(Activity customActivity, InterstitialListener adListenerCallback){
         long time = ((System.currentTimeMillis() - interstitialAdLoadTime) / 1000);
         if (adServing && time >= interstitialMinLoadTime)
             AdmobAdController.getInstance().showInterstitial(adListenerCallback, customActivity, adUnits.admInterstitial);

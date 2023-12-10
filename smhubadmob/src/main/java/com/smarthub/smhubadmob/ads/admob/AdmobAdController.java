@@ -405,7 +405,7 @@ public class AdmobAdController{
      * Populates a {@link CustomActivity} object with data from a given
      * {@link InterstitialListener}.
      */
-    public void showInterstitial (InterstitialListener interstitialListener, CustomActivity customActivity,String id){
+    public void showInterstitial (InterstitialListener interstitialListener, Activity customActivity,String id){
         Log.d("status","admob request Interstitial");
         if (mInterstitialAd!=null){
             mInterstitialAd.show(customActivity);
@@ -464,7 +464,7 @@ public class AdmobAdController{
      * {@link NativeAd}.
      */
     public void loadInterstitial(String id) {
-        if (isLoading || mInterstitialAd!=null || customActivity==null){
+        if (isLoading || mInterstitialAd!=null){
             return;
         }
         if (adRequest==null)
@@ -473,7 +473,7 @@ public class AdmobAdController{
 
         isLoading = true;
         Log.d("status","loadInterstitial");
-        InterstitialAd.load(customActivity,id,
+        InterstitialAd.load(BaseApplication.getInstance(),id,
                 adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
