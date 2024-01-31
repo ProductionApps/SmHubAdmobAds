@@ -14,7 +14,4 @@
     <string name="ok">Ok</string>
     <string name="disclosure_message">Your data will be used to deliver personalized ads to you.</string>
     <string name="crop_image">CROP IMAGE</string>
-
-    <string name="link_to_channel">https://play.google.com/store/apps/developer?id=Smart+hub</string>
-
 </resources>

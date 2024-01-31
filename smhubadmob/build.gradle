@@ -5,40 +5,38 @@ plugins {
 
 }
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 23
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     buildFeatures {
         buildConfig = true
     }
-    buildToolsVersion '33.0.0'
     namespace 'com.smarthub.smhubadmob'
     lintOptions {
         checkReleaseBuilds true
         abortOnError true
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
 dependencies {
 
     api 'androidx.appcompat:appcompat:1.6.1'
-    api 'com.google.android.material:material:1.9.0'
+    api 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    api 'androidx.core:core-ktx:1.10.1'
     androidTestImplementation 'junit:junit:'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -46,19 +44,18 @@ dependencies {
     api 'androidx.multidex:multidex:2.0.1'
     api 'com.google.code.gson:gson:2.9.0'
     api 'com.google.android.gms:play-services-ads-identifier:18.0.1'
-    api 'com.google.android.gms:play-services-ads:22.3.0'
+    api 'com.google.android.gms:play-services-ads:22.6.0'
     implementation 'com.google.errorprone:error_prone_annotations:2.16'
-    api 'com.google.android.gms:play-services-location:21.0.1'
+    api 'com.google.android.gms:play-services-location:21.1.0'
 
-    def lifecycle_version = '2.6.1'
+    def lifecycle_version = '2.7.0'
     api "androidx.lifecycle:lifecycle-process:$lifecycle_version"
-    api "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
-    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.6.1'
+    api "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.7.0'
 
     api 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     api 'com.ui.optimize:dimens:1.0.0'
-    api 'com.google.android.exoplayer:exoplayer:2.19.1'
 }
 
 afterEvaluate {
